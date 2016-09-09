@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<title>天气 LV1作业</title>
+	<style type="text/css">
+	*{margin: 0;padding: 0;}	
+		#box{
+			width: 334px;
+			height: 392px;
+			background: #31295c;
+			position: relative;
+			top: 100px;
+			left: 50px;	
+		}
+		
+		#content{
+			width: 277px;
+			height: 324px;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin-top: -162px;
+			margin-left: -139px;
+			background-color: #0664d6;
+
+		}
+		#content-1{
+			width: 277px;
+			height: 206px;
+
+		}
+		#content-2,#content-3,#content-4{
+			height: 39px;
+			
+			border-bottom: 1px solid #0f2595;
+			
+		}
+		#content-3,#content-4{
+			border-top: 1px solid #0caff0;
+			background: url(images/icon-snow.gif) 228px 10px no-repeat;
+		}
+		#content-2{
+			background: url(images/icon-sun.gif) 228px 10px no-repeat;
+
+		}
+	</style>
+</head>
+<body>
+<div id="box">
+	<div id="content">
+		<div id="content-1">
+		<img src="images/weather.png">	
+		</div>
+		<div id="content-2"></div>
+		<div id="content-3"></div>
+		<div id="content-4"></div>
+	</div>
+</div>
+</body>
+</html>
