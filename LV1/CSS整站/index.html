@@ -10,7 +10,7 @@
 <body>
 <div id="wrapper">
 <!--top开始-->
-<div id="top clearfix">
+<div id="top " class="clearfix">
     <ul class="top-menu">
         <li><a href="">Account Sign In</a></li>
         <li><a href="">Register</a></li>
@@ -19,28 +19,53 @@
         <li><a href="">Blog</a></li>
         <li class="no-bg"><a href="">Contact</a></li>
     </ul>
-    <div class="top-bar clearfix">
+    <!--top-bar这种写法不好，用ul li-->
+    <!--<div class="top-bar clearfix">
         <p class="tel">123 456 789</p>
         <p class="help">Live Help</p>
         <img src="img/top-canada.png" alt="1" title="Canada"/>
         <img src="img/top-america.png" alt="1" title="America"/>
-    </div>
+    </div>-->
+    <ul class="top-bar">
+        <li class="img"><a href=""><img src="img/top-america.png" alt="1" title="America"/></a></li>
+        <li class="img"><a href=""><img src="img/top-canada.png" alt="1" title="Canada"/></a></li>
+        <li class="help"><a href="" >Live Help</a></li>
+        <li class="tel">123 456 789</li>
+        
+        
+    </ul>
 </div>
 <!--top结束-->
-
 <!--header开始-->
 <div id="header">
-<p>0 items in your bag</p>
-<img src="" alt="" title="Ecommerce Website" />
-<form>
-<input type="text" value="Search website" />
-<button></button>
-</form>
+    <div class="shopping">
+        <p>0 items in your bag</p>
+        <a href="" >Check Out</a>
+    </div>
+    <h1 title="Ecommerce Website">
+        <a href=""><img src="img/header-logo.png" alt="logo" /></a>
+    </h1>
+    <div class="search">
+        <form action="">
+            <input class='text' type="text" value="Search website" />
+            <input class="btn" type="submit" value="" />
+        </form>
+    </div>
 </div>
 <!--header结束-->
 
 <!--nav开始-->
-<div id="nav"></div>
+<ul id="nav">
+<li class="active"><a href=""><strong><span>HOME</span></strong></a></li>
+<li><a href=""><strong><span>LATEST ARRIVALS</span></strong></a></li>
+<li><a href=""><strong><span>MEN'S</span></strong></a></li>
+<li><a href=""><strong><span>WOMEN'S</span></strong></a></li>
+<li><a href=""><strong><span>KIDS</span></strong></a></li>
+<li><a href=""><strong><span>BRANDS</span></strong></a></li>
+<li><a href=""><strong><span>SALE</span></strong></a></li>
+<li><a href=""><strong><span>GIFT CARDS</span></strong></a></li>
+<li><a href=""><strong><span>FREEBIES</span></strong></a></li>
+</ul>
 <!--nav结束-->
 <!--content开始-->
 <div id="content"></div>
