@@ -1,0 +1,20 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*设置背景*/
+body{background:url(../img/bodybg.jpg) repeat-x;}
+	
+/*设置内容居中	*/
+#wrapper{width:960px;margin:0 auto;}
+
+/*top开始*/
+#top{height:30px;}
+.top-menu{height:30px;float:left;}
+.top-menu li{float:left;padding-right:30px;background:url(../img/topbg.png) no-repeat right 0;}
+.top-menu .no-bg{background:none;}/*contact后面没有小点*/
+.top-menu a{color:#c0c0c0;font-size:13px;line-height:30px;}
+.top-bar{height:30px;float:right;position:relative;}
+.top-bar p{display:inline-block;font-size:13px;line-height:30px; font-weight:bold;color:#fff;}
+.top-bar .tel{background:url(../img/topbg.png) left -30px no-repeat;padding-left:28px;padding-right:38px;}
+.top-bar .help{background:url(../img/topbg.png) left -60px no-repeat;padding-left:38px;padding-right:16px;}
+.top-bar img{diaplay:inline-block;/*position:absolute;top:9px;right:0;*/float:right;margin:9px 0 10px 13px;}
