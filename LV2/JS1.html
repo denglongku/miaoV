@@ -1,0 +1,166 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>JS热身练习</title>
+<style>
+/*清除默认样式*/
+body,div,h1, p{margin:0; padding:0;}
+/*遮罩层*/
+#mask{width:10000px; height:10000px;background:#808080; display:none; position:absolute; top:0;left:-50px; }
+/*主页面*/
+#wrap{margin:0 50px; width:1460px; height:500px;position:relative;}
+h1{display:inline-block; font-size:28px; padding-top:10px;}
+#btn{display:inline-block; background:#F00; color:#fff; font-size:15px; border:none; height:40px;}
+#div{width:100px; height:100px; border:3px solid #000; margin-top:10px;}
+/*弹出页面*/
+#alert{width:276px; height:160px; border:15px #949c94 solid; padding-top:20px; padding-left:5px;display:none; position:absolute; top:50%; left:50%; margin-top:-80px; margin-left:-138px; background:white;}
+#alert p, #alert input{display:inline-block; }
+#alert input{width:40px; height:30px;}
+#alert input:hover{border-color:#FFF;}
+#bgcolor, #width, #height, #btn2{height:40px;}
+#btn2{text-align:center;}
+#yellow{border:1px solid #FC0; background:#FF0;}
+#red{border:1px solid #F30; background:#F00;}
+#blue{border:1px solid #30F; background:#36F;}
+#w200,#w300,#w400,#h200,#h300,#h400, { border:1px solid #000;}
+#ok, #reset{border:2px solid #000; background:#09F; font-weight:bold;}
+</style>
+<script>
+
+window.onload = function(){
+
+	var oBtn = document.getElementById("btn");
+	
+	var	oRed = document.getElementById("red");
+	var	oYellow = document.getElementById("yellow");
+	var	oBlue = document.getElementById("blue");
+	
+	var	oW200 = document.getElementById("w200");
+	var	oW300 = document.getElementById("w300");
+	var	oW400 = document.getElementById("w400");
+	
+	var	oH200 = document.getElementById("h200");
+	var	oH300 = document.getElementById("h300");
+	var	oH400 = document.getElementById("h400");
+	
+	var	oReset = document.getElementById("reset");
+	var	oOk = document.getElementById("ok");
+		
+	oBtn.onclick = show;
+	
+	oRed.onclick = red;
+	oYellow.onclick = yellow;
+	oBlue.onclick = blue;
+	
+	oW200.onclick = w200;
+	oW300.onclick = w300;
+	oW400.onclick = w400;
+	
+	oH200.onclick = h200;
+	oH300.onclick = h300;
+	oH400.onclick = h400;
+	
+	oReset.onclick = set;
+	oOk.onclick = ok;	
+	}
+
+
+
+function show(){
+	var	oAlert = document.getElementById("alert");
+	var	oMask = document.getElementById("mask");
+	oAlert.style.display = "block";
+	oMask.style.display = "block";
+	}
+function red(){
+	var oDiv = document.getElementById("div");
+	oDiv.style.backgroundColor = 'red';
+	}
+function yellow(){
+	var oDiv = document.getElementById("div");
+	oDiv.style.backgroundColor = "yellow";
+	}
+function blue(){
+	var oDiv = document.getElementById("div");
+	oDiv.style.backgroundColor = "blue";
+	}
+function w200(){
+	var oDiv = document.getElementById("div");
+	oDiv.style.width = 200 +'px';
+	}
+function w300(){
+	var oDiv = document.getElementById("div");
+	oDiv.style.width = 300 +'px';
+	}
+function w400(){
+	var oDiv = document.getElementById("div");
+	oDiv.style.width = 400 +'px';
+	}
+function h200(){
+	var oDiv = document.getElementById("div");
+	oDiv.style.height = 200 +'px';
+	}
+function h300(){
+	var oDiv = document.getElementById("div");
+	oDiv.style.height = 300 +'px';
+	}
+function h400(){
+	var oDiv = document.getElementById("div");
+	oDiv.style.height = 400 +'px';
+	}
+function set(){
+	var oDiv = document.getElementById("div");
+	oDiv.style.backgroundColor = '';
+	oDiv.style.width = '100px'; 
+	oDiv.style.height =  '100px';
+	
+	}
+function ok(){
+	var	oAlert = document.getElementById("alert");
+	var	oMask = document.getElementById("mask");
+	oAlert.style.display = "none";
+	oMask.style.display = "none";
+	}
+</script>
+
+</head>
+
+<body>
+<!--遮罩层-->
+<div id="mask">
+</div>
+<div id="wrap">
+    <h1>请为下面的DIV设置样式：</h1>
+    <input id="btn" type="button" value="点击设置" />
+    <!--待设置的div-->
+    <div id="div"></div>
+    <!--弹出框-->
+    <div id="alert">
+        <div id="bgcolor">
+            <p>请选择背景色：</p>
+            <input id="red" type="button" value="红" />
+            <input id="yellow" type="button" value="黄" />
+            <input id="blue" type="button" value="蓝" />
+        </div><!--设置背景颜色-->
+        <div id="width">
+            <p>请选择宽 (px)：</p>
+            <input id="w200" type="button" value="200" />
+            <input id="w300" type="button" value="300" />
+            <input id="w400" type="button" value="400" />
+        </div><!--设置宽度-->
+        <div id="height">
+            <p>请选择高 (px)：</p>
+            <input id="h200" type="button" value="200" />
+            <input id="h300" type="button" value="300" />
+            <input id="h400" type="button" value="400" />
+        </div><!--设置高度-->
+        <div id="btn2">
+            <input id="reset" type="button" value="恢复" />
+            <input id="ok" type="button" value="确定" />
+        </div><!--确认&取消按钮-->
+    </div>
+
+</div>
+</body>
+</html>
