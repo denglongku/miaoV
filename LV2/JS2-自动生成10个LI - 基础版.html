@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>自动成10个生LI</title>
+<style>
+/*清除默认样式*/
+body,ul,li{margin:0; padding:0;}
+ul{position:relative; list-style:none;}
+li{width:50px; height:50px; border:1px solid #000;position:absolute; font-size:32px; color:#000; text-align:center; line-height:50px; /*background:red;*/}
+.red{background-color:red;}
+.yellow{background-color:yellow;}
+.blue{background-color:blue;}
+.green{background-color:green;}
+</style>
+<script>
+window.onload = function(){
+	var oUl = document.getElementById('list');
+	var oBtn = document.getElementsByTagName('input')[0];
+	var aLi = oUl.getElementsByTagName('li');
+	var arr = ['red','yellow','blue','green','red','yellow','blue','green','red','yellow']
+	var onOff = true;
+	
+	
+	oBtn.onclick = function(){
+		if(onOff){
+			for(var i=0;i<10;i++){
+			oUl.innerHTML += '<li></li>';
+			aLi[i].style.left = 10+60*i+'px';
+			aLi[i].innerHTML = i;
+			aLi[i].setAttribute('class',arr[i]);
+			}
+			onOff = false;
+		}
+
+	}
+};
+</script>
+</head>
+
+<body>
+
+<input type="button" value="自动生成10个LI" />
+<ul id="list"></ul>
+</body>
+</html>
