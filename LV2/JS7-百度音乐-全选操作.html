@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>百度音乐-全选操作</title>
+    <style type="text/css">
+   body,div,ul{margin:0; padding:0;}
+   
+   #wrap{width:330px; height:230px; border:1px solid #66F; margin:10px; }
+   ul{}
+   li{height:31px; line-height:31px; list-style:none; position:relative; border-bottom:1px solid #fff; text-indent:1em;}
+   li span{width:250px; }
+   .editor{position:absolute; top:0; left:200px;}
+   #footer{height:44px; line-height:44px; text-indent:1em; position:relative;}
+   .btn1, .btn2,.btn3{width:70px; height:32px;padding-left:30px; position:absolute;top:4px; border:1px solid #999; border-radius:3px;}
+   .btn1{background: url(img/taoxin.png) 2px 2px no-repeat; right:165px; }
+   .btn2{background:url(img/jiahao.png) 2px 1px no-repeat;  right:85px; }
+   .btn3{background:url(img/shanchu.png) 2px 1px no-repeat;right:5px; }
+    </style>
+    
+    <script type="text/javascript">
+         
+    window.onload = function() {
+		var oDiv = document.getElementById('wrap');
+		var oDiv1 = document.getElementById('footer');
+		var oUl = oDiv.getElementsByTagName('ul')[0];
+		var aLi = oUl.getElementsByTagName('li');
+		var aCheckbox = oUl.getElementsByTagName('input');
+		var oAll =oDiv1.getElementsByTagName('input')[0]; 
+		//初始化，checked全未选中
+		for(var i=0;i<aCheckbox.length;i++){
+		      aCheckbox[i].checked = false;	
+	    }
+		oAll.checked = false;
+		//初始化，隔行颜色不同
+		bgColor();
+		
+		//背景色 初始化函数
+		function bgColor(){
+		for(var i=0;i<aLi.length;i++){
+			       aLi[i].onOff = 1;
+				   aLi[i].style.background = '#fff';
+				   for(var j=0;j<aLi.length;j+=2){
+		             aLi[j].style.background = '#f7ffff';	
+        }}}
+		
+		
+		
+		//li移入移出变色
+		for(var i=0;i<aLi.length;i++){
+			
+		   aLi[i].onmouseover = function(){
+			   if(this.onOff == 1){
+				   //当前li变背景色
+				  this.style.background = '#efefef';} 
+		  }
+		   aLi[i].onmouseout = function(){
+			   if(this.onOff == 1){
+				  if(this.index%2 == 0){//偶数
+					  this.style.background = '#f7ffff';
+				  }else{//奇数
+					 this.style.background = '#fff'; 
+				 }}
+		  }
+	   }
+		
+		 //li点击变灰色，变选中状态；再点击背景色复原，选中状态改变
+		for(var i=0;i<aLi.length;i++){
+		   aLi[i].index = i;//索引值
+		   aLi[i].onclick = function(){
+			   //判断checkbox选中状态
+			  if(aCheckbox[this.index].checked){
+				  aCheckbox[this.index].checked = false;
+				   //判断当前li索引值奇偶数
+				  if(this.index%2 == 0){//偶数
+					  this.style.background = '#f7ffff';
+				  }else{//奇数
+					 this.style.background = '#fff'; 
+				 }
+			 }else{
+				 this.onOff = 0;
+				 aCheckbox[this.index].checked = true;
+				 this.style.background = '#efefef'; 
+			 } 
+		   }
+	  }
+	 //全选
+	 oAll.onclick = function(){
+		 if(oAll.checked ){
+			 for(var i=0;i<aLi.length;i++){
+			aLi[i].style.background = '#efefef';
+			aLi[i].onOff = 0;
+		   }
+		   for(var j=0;j<aCheckbox.length;j++){
+			aCheckbox[j].checked = true;
+		  }
+		 }else{
+			 for(var i=0;i<aLi.length;i++){
+		bgColor();
+		aLi[i].onOff = 1;
+	}
+	 for(var j=0;j<aCheckbox.length;j++){
+		aCheckbox[j].checked = false;
+	}
+	}
+			 }
+	
+	  
+		
+		
+	};
+	
+    </script>
+ 
+</head>
+<body>
+<div id="wrap">
+  <ul>
+      <li>
+          <input type="checkbox" name='singer' id='checkbox1'/>
+          <label for="checkbox1">
+          <span>私奔</span><span class="editor">梁博</span>
+          </label>
+      </li>
+      <li>
+          <input type="checkbox" name='singer' id='checkbox2'/>
+         <label for="checkbox2">
+          <span>北京北京</span><span class="editor">梁博,黄勇</span>
+          </label>
+      </li>
+      <li>
+          <input type="checkbox"name='singer' id='checkbox3' />
+          <label for="checkbox3">
+          <span>我爱你中国</span><span class="editor">梁博</span>
+          </label>
+      </li>
+      <li>
+          <input type="checkbox" name='singer' id='checkbox4'/>
+          <label for="checkbox4">
+          <span>花火</span><span class="editor">梁博</span>
+          </label>
+      </li>
+      <li>
+          <input type="checkbox" name='singer' id='checkbox5'/>
+          <label for="checkbox5">
+          <span>回来</span><span class="editor">梁博</span>
+          </label>
+      </li>
+      <li>
+          <input type="checkbox" name='singer' id='checkbox6'/>
+          <label for="checkbox6">
+          <span>爱要有你才完美</span><span class="editor">梁博,那英</span>
+          </label>
+      </li>
+  </ul>
+  <div id="footer">
+      <input type="checkbox"/>
+      <span>全选</span>
+      <input class='btn1' type="button" value="收藏"/>
+      <input class='btn2' type="button" value="添加"/>
+      <input class='btn3' type="button" value="删除"/>
+  </div>
+</div>
+</body>
+</html>
