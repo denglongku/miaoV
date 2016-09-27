@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>模拟手机短信发送</title>
+<style>
+/*清除默认样式*/
+body,div,ul,input{margin:0; padding:0;}
+s{text-decoration:none;}
+li{list-style:none;}
+
+#box{width:237px; height:476px;  margin:0 auto;background:url(img/phone.jpg) no-repeat; position:relative;}
+#box-cont{width:188px; height:334px; position:absolute; left:25px; top:71px;  }
+#cont{width: 188px;height: 294px;border-bottom: 1px solid #c7cbca; overflow: auto;}
+
+.more{padding-top:5px; height:33px;}
+#people{display: inline-block;width: 24px;height: 24px;border:1px solid #c7cbca;border-radius: 3px;margin-left: 3px;cursor: pointer;float: left;}
+#text{width: 111px;height: 24px;border:1px solid #c7cbca;border-radius: 3px;margin-left: 3px;float: left;}
+#btn{border:none;background-color: white;height: 24px;font-size: 16px;color: #979596;margin-left: 3px;}
+
+/*JS添加的元素的样式*/
+p{margin:0;background:red; word-break:break-all;}
+.fl img{float: left;}
+.fl p{float: left;margin-left: 5px;line-height: 24px;max-width: 140px;}
+.fr img{float: right;}
+.fr p{float: right;margin-left: 5px;line-height: 24px;max-width: 140px;background: yellow;}
+.fl,.fr{margin-bottom: 5px;}
+/*清除浮动*/
+.clearfix:after{content: "";display: block;clear: both;}
+</style>
+<script>
+window.onload = function(){
+  var oPic = document.getElementById("pic");
+  var oBtn = document.getElementById("btn");
+  var oText = document.getElementById("text");
+  var oCont = document.getElementById("cont");
+  //创建一个开关
+  var onOff = true;
+  //点击图片，切换头像
+  oPic.onclick = function(){
+	if(onOff){
+		oPic.src = "img/img2.png";
+	}else{
+		oPic.src = "img/img1.png";
+	}
+	onOff = !onOff;
+  }
+  //点击发送，内容填充到上面		
+  oBtn.onclick = function(){
+	if(onOff){
+		oCont.innerHTML += '<li class="fl clearfix"><img src="img/img1.png"/><p>'+oText.value+'</p></li>';
+	}else{
+		oCont.innerHTML += '<li class="fr clearfix"><img src="img/img2.png"/><p>'+oText.value+'</p></li>';
+	}
+	oText.value = "";}
+  
+  
+};
+</script> 
+</head>
+
+<body>
+<div id="box">
+    <div id="box-cont">
+        <ul id="cont">
+           
+        </ul>
+        <form class="more">
+           <s id='people'>
+              <img src="img/img1.png" id="pic" />
+           </s>
+           <input type="text" id="text"/>
+           <input type="button" id="btn" value="发送"/>
+        </form>
+        
+    </div>
+</div>
+
+</body>
+</html>
