@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>搜狐视频纪录片列表展示</title>
+    <style type="text/css">
+   body,div,p,h1,ul{margin:0; padding:0;}
+   li{list-style:none;}
+   
+   #wrap{width:400px; height:470px; border:1px solid #09F;margin:10px auto; position:relative;padding:10px; background:#dee7e7;}
+   h1{display:inline-block; height:40px;line-height:40px; width:250px; text-indent:0.5em;border-bottom:1px solid #36F; color:#06F; font-size:22px; }
+   p{width:49px; height:30px; border:1px solid #36F; border-left:none; top:19px; cursor:pointer;}
+   #day{position:absolute; right:110px; border-left:1px solid #36F;}
+   #week{position:absolute; right:60px;}
+   #all{position:absolute; right:10px;}
+   ul{display:none;}
+   li{height:30px;width:395px; padding-top:8px; border-bottom:1px dotted #fff; padding-right:5px;position:relative; }
+   li img, li input{display:none;}
+   li span{ display:inline-block; width:20px; height:20px; background:#03F; color:#fff; font-weight:bold; text-align:center;line-height:20px; border-radius:5px; margin:0 5px; float:left;}
+   
+   .activep{background:#fff; border-bottom-color:#fff;}
+   .activeul{display:block;}
+   .activeli{height:70px; border-bottom:1px dotted #fff; background:#fff; padding-top:2px;}
+    .activeli img{display:inline-block;width:100px; height:64px; border:3px solid #999; float:left; margin-right:5px;}
+	.activeli input{display:inline-block;position:absolute;bottom:10px; right:10px; background:#03F url(img/ico1.gif) 3px center no-repeat; border:1px solid #06F; border-radius:5px; padding-left:12px; width:43px; color:#999; cursor:pointer;}
+   #more{position:absolute; top:465px; right:-40px; border:none; width:100px;}
+   a{text-decoration:none;color:#000;font-size:14px;}
+
+    </style>
+    
+    <script type="text/javascript">
+         
+    window.onload = function() {
+	  var oDiv = document.getElementById('wrap');
+	  var aUl = oDiv.getElementsByTagName('ul');
+	  var aP = oDiv.getElementsByTagName('p');
+	 
+	 
+	 //初始化
+	 aP[0].className = 'activep'; //初始化P
+	 aUl[0].className = 'activeul';  //初始化ul
+	 for(var i=0;i<aUl.length;i++){  //初始化Li
+		var aLi = aUl[i].getElementsByTagName('li');      
+		aLi[0].className = 'activeli';}
+	 //
+	 /* for(var i=0;i<aP.length;i++){
+		  aP[i].index = i; //索引号
+		  aP[i].onmouseover = function(){//每日每周鼠标移入
+		     for(var i=0;i<aUl.length;i++){
+				 aUl[i].className = '';
+			}
+			 this.className = 'activep';
+			 aUl[this.index].className = 'activeul';//显示相对应的ul */
+			for(var i=0;i<aUl.length;i++){
+		        var aLi = aUl[i].getElementsByTagName('li');      
+		       //鼠标移入移出li
+		       for(var j=0;j<aLi.length;j++){
+			      aLi[j].onmouseover = function(){
+				     this.className = 'activeli';
+		          }
+			      aLi[j].onmouseout = function(){
+				     this.className = '';
+		          }
+	      
+		  }
+		  /*aP[i].onmouseout = function(){
+				 this.className = '';
+				 aUl[this.index].className = '';
+		     }*/
+	  }
+      	 
+	 
+	 
+	  
+	  
+	   
+			
+	  
+	
+		
+};
+    </script>
+ 
+</head>
+<body>
+   <div id="wrap">
+       <h1>观看排行榜</h1>
+       <p id="day" >每日</p>
+       <ul>
+           <li /*class="activeli"*/>
+           <span>1</span>
+           <img src="img/45.jpg" />
+           0国家地理频道在纪录片《改变世界的6摄氏度》
+           <input  type="button" value="播放"/>
+           </li>
+           <li>
+           <span>2</span>
+           <img src="img/45.jpg" />
+           0国家地理频道在纪录片《改变世界的6摄氏度》
+           <input  type="button" value="播放"/>
+           </li>
+           <li><span>3</span>
+           <img src="img/45.jpg" />
+           0国家地理频道在纪录片《改变世界的6摄氏度》
+           <input  type="button" value="播放"/>
+           </li>
+           <li><span>4</span>
+           <img src="img/45.jpg" />
+           国家地理频道在纪录片《改变世界的6摄氏度》
+           <input  type="button" value="播放"/>
+           </li>
+           <li><span>5</span>
+           <img src="img/45.jpg" />
+           国家地理频道在纪录片《改变世界的6摄氏度》
+           <input  type="button" value="播放"/>
+           </li>
+           <li><span>6</span>
+           <img src="img/45.jpg" />
+           国家地理频道在纪录片《改变世界的6摄氏度》
+           <input  type="button" value="播放"/>
+           </li>
+           <li><span>7</span>
+           <img src="img/45.jpg" />
+           国家地理频道在纪录片《改变世界的6摄氏度》
+           <input  type="button" value="播放"/>
+           </li>
+           <li><span>8</span>
+           <img src="img/45.jpg" />
+           国家地理频道在纪录片《改变世界的6摄氏度》
+           <input  type="button" value="播放"/>
+           </li>
+           <li><span>9</span>
+           <img src="img/45.jpg" />
+           国家地理频道在纪录片《改变世界的6摄氏度》
+           <input  type="button" value="播放"/>
+           </li>
+           <li><span>10</span>
+           <img src="img/45.jpg" />
+           国家地理频道在纪录片《改变世界的6摄氏度》
+           <input  type="button" value="播放"/>
+           </li>
+       </ul> 
+       <p id="week">每周</p>
+      <ul >
+           <li >
+           <span>1</span>
+           <img src="img/45.jpg" />
+           1国家地理频道在纪录片《改变世界的6摄氏度》
+           <input  type="button" value="播放"/>
+           </li>
+           <li>
+           <span>2</span>
+           1国家地理频道在纪录片《改变世界的6摄氏度》
+           <img src="img/45.jpg" />
+           1国家地理频道在纪录片《改变世界的6摄氏度》
+           <input  type="button" value="播放"/>
+           </li>
+           <li><span>3</span>国家地理频道在纪录片《改变世界的6摄氏度》
+           <img src="img/45.jpg" />
+           国家地理频道在纪录片《改变世界的6摄氏度》
+           <input  type="button" value="播放"/>
+           </li>
+           <li><span>4</span>国家地理频道在纪录片《改变世界的6摄氏度》
+           <img src="img/45.jpg" />
+           国家地理频道在纪录片《改变世界的6摄氏度》
+           <input  type="button" value="播放"/>
+           </li>
+           <li><span>5</span>国家地理频道在纪录片《改变世界的6摄氏度》
+           <img src="img/45.jpg" />
+           国家地理频道在纪录片《改变世界的6摄氏度》
+           <input  type="button" value="播放"/>
+           </li>
+           <li><span>6</span>国家地理频道在纪录片《改变世界的6摄氏度》
+           <img src="img/45.jpg" />
+           国家地理频道在纪录片《改变世界的6摄氏度》
+           <input  type="button" value="播放"/>
+           </li>
+           <li><span>7</span>国家地理频道在纪录片《改变世界的6摄氏度》
+           <img src="img/45.jpg" />
+           国家地理频道在纪录片《改变世界的6摄氏度》
+           <input  type="button" value="播放"/>
+           </li>
+           <li><span>8</span>国家地理频道在纪录片《改变世界的6摄氏度》
+           <img src="img/45.jpg" />
+           国家地理频道在纪录片《改变世界的6摄氏度》
+           <input  type="button" value="播放"/>
+           </li>
+           <li><span>9</span>国家地理频道在纪录片《改变世界的6摄氏度》
+           <img src="img/45.jpg" />
+           国家地理频道在纪录片《改变世界的6摄氏度》
+           <input  type="button" value="播放"/>
+           </li>
+           <li><span>10</span>国家地理频道在纪录片《改变世界的6摄氏度》
+           <img src="img/45.jpg" />
+           国家地理频道在纪录片《改变世界的6摄氏度》
+           <input  type="button" value="播放"/>
+           </li>
+       </ul>  
+       <p id="all">全部</p>
+       <ul >
+           <li >
+           <span>1</span>
+           <img src="img/45.jpg" />
+           2国家地理频道在纪录片《改变世界的6摄氏度》
+           <input  type="button" value="播放"/>
+           </li>
+           <li>
+           <span>2</span>
+           2国家地理频道在纪录片《改变世界的6摄氏度》
+           <img src="img/45.jpg" />
+           2国家地理频道在纪录片《改变世界的6摄氏度》
+           <input  type="button" value="播放"/>
+           </li>
+           <li><span>3</span>国家地理频道在纪录片《改变世界的6摄氏度》
+           <img src="img/45.jpg" />
+           国家地理频道在纪录片《改变世界的6摄氏度》
+           <input  type="button" value="播放"/>
+           </li>
+           <li><span>4</span>国家地理频道在纪录片《改变世界的6摄氏度》
+           <img src="img/45.jpg" />
+           国家地理频道在纪录片《改变世界的6摄氏度》
+           <input  type="button" value="播放"/>
+           </li>
+           <li><span>5</span>国家地理频道在纪录片《改变世界的6摄氏度》
+           <img src="img/45.jpg" />
+           国家地理频道在纪录片《改变世界的6摄氏度》
+           <input  type="button" value="播放"/>
+           </li>
+           <li><span>6</span>国家地理频道在纪录片《改变世界的6摄氏度》
+           <img src="img/45.jpg" />
+           国家地理频道在纪录片《改变世界的6摄氏度》
+           <input  type="button" value="播放"/>
+           </li>
+           <li><span>7</span>国家地理频道在纪录片《改变世界的6摄氏度》
+           <img src="img/45.jpg" />
+           国家地理频道在纪录片《改变世界的6摄氏度》
+           <input  type="button" value="播放"/>
+           </li>
+           <li><span>8</span>国家地理频道在纪录片《改变世界的6摄氏度》
+           <img src="img/45.jpg" />
+           国家地理频道在纪录片《改变世界的6摄氏度》
+           <input  type="button" value="播放"/>
+           </li>
+           <li><span>9</span>国家地理频道在纪录片《改变世界的6摄氏度》
+           <img src="img/45.jpg" />
+           国家地理频道在纪录片《改变世界的6摄氏度》
+           <input  type="button" value="播放"/>
+           </li>
+           <li><span>10</span>国家地理频道在纪录片《改变世界的6摄氏度》
+           <img src="img/45.jpg" />
+           国家地理频道在纪录片《改变世界的6摄氏度》
+           <input  type="button" value="播放"/>
+           </li>
+       </ul>  
+       <p id="more"><a href="">更多&gt;&gt;</a></p>
+   </div>
+</body>
+</html>
