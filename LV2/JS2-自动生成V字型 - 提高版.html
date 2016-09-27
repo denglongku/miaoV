@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>V字型</title>
+<style>
+/*清除默认样式*/
+div,p{margin:0; padding:0;}
+div{width:50px; height:50px; background:red; position:absolute; font-size:30px; text-align:center; line-height:50px; color:white;}
+</style>
+<script>
+window.onload = function(){
+	var aDiv = document.getElementsByTagName('div');
+	var str = '';
+	var a = Math.ceil(aDiv.length/2);
+
+	
+	for(var i=0;i<11;i++){
+		str += '<div>'+ i+'</div>';
+		}
+	document.body.innerHTML = str;
+	
+	/*for(var i=0;i<=a;i++){
+		aDiv[i].style.left = i*50 +'px';
+		aDiv[i].style.top = i* 50 +'px';
+		}*/
+	/*for(var i=a+1;i<i.length;i++){
+		aDiv[i].style.left = (i-1)*50 +'px';
+		aDiv[i].style.top = (i-2)* 50 +'px';
+		}*/
+
+};
+</script>
+</head>
+
+<body>
+
+
+</body>
+</html>
