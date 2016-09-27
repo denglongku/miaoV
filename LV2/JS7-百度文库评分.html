@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>百度文库评分</title>
+    <style type="text/css">
+    body,ul,div,h2{padding:0; margin:0;}
+	li{list-style:none;}
+	
+	#wrap{ width:640px; height:80px; border:1px solid #0FF; position:relative;}
+	h2{height:50px;line-height:50px; font-size:24px; font-weight:normal;}
+	h2 span{color:red;}
+	ul{position:absolute; top:13px; left:120px;}
+	li{float:left;}
+	li img{}
+	.last{width:80px; height:30px; line-height:30px; margin-left:10px; color:#F93; font-weight:bold;}
+	
+	#tip{font-size:14px;border:1px solid #9F9; width:280px; height:30px; line-height:30px;position:absolute; top:-6px; left:340px;}
+	#tip img{position:absolute; top:5px; right:10px;}
+	
+    </style>
+    
+    <script type="text/javascript">
+         
+    window.onload = function() {
+	 var oDiv = document.getElementById('wrap');
+	 var oUl = oDiv.getElementsByTagName('ul')[0];
+	 var aLi = oUl.getElementsByTagName('li');
+	var oTip = document.getElementById('tip');
+	
+	 var arrSpan = ['很差','较差','还行','推荐','力荐'];
+	 var arrUrl = ['img/shouwuxing.png','img/shouwuxing1.png','img/shouwuxing2.png'];
+	  
+	  
+	  var oImg0 = aLi[0].getElementsByTagName('img')[0];
+	   var oImg1 = aLi[1].getElementsByTagName('img')[0];
+	    var oImg2 = aLi[2].getElementsByTagName('img')[0];
+		 var oImg3 = aLi[3].getElementsByTagName('img')[0];
+		  var oImg4 = aLi[4].getElementsByTagName('img')[0];
+	  
+	 
+	  
+	  aLi[0].onmouseover = function(){
+		  aLi[5].innerHTML = arrSpan[0];
+		  aLi[5].style.color = 'gray';
+		   oTip.style.display = 'none';
+		  oImg0.src =  arrUrl[0]; 
+	  }
+	  aLi[0].onmouseout = function(){
+		  aLi[5].innerHTML = ''; 
+		   oTip.style.display = 'block';
+		  oImg0.src =  arrUrl[2]; 
+	  }
+	  aLi[1].onmouseover = function(){
+		  aLi[5].innerHTML = arrSpan[1];
+		  oTip.style.display = 'none';
+		  aLi[5].style.color = 'gray'; 
+		  oImg0.src =  arrUrl[0];
+		  oImg1.src =  arrUrl[0];  
+	  }
+	  aLi[1].onmouseout = function(){
+		  aLi[5].innerHTML = ''; 
+		   oTip.style.display = 'block';
+		  oImg0.src =  arrUrl[2];
+		  oImg1.src =  arrUrl[2];  
+	  }
+	  aLi[2].onmouseover = function(){
+		  aLi[5].innerHTML = arrSpan[2];
+		  oTip.style.display = 'none';
+		  aLi[5].style.color = '#F93';
+		  oImg0.src =  arrUrl[1];
+		  oImg1.src =  arrUrl[1];
+		  oImg2.src =  arrUrl[1];
+	  }
+	   aLi[2].onmouseout = function(){
+		  aLi[5].innerHTML = '';
+		   oTip.style.display = 'block';
+		  oImg0.src =  arrUrl[2];
+		  oImg1.src =  arrUrl[2];
+		  oImg2.src =  arrUrl[2];
+	  }
+	  aLi[3].onmouseover = function(){
+		  aLi[5].innerHTML = arrSpan[3];
+		  oTip.style.display = 'none';
+		  aLi[5].style.color = '#F93';
+		  oImg0.src =  arrUrl[1];
+		  oImg1.src =  arrUrl[1];
+		  oImg2.src =  arrUrl[1]; 
+		  oImg3.src =  arrUrl[1]; 
+	  }
+	  aLi[3].onmouseout = function(){
+		  aLi[5].innerHTML = '';
+		   oTip.style.display = 'block';
+		  oImg0.src =  arrUrl[2];
+		  oImg1.src =  arrUrl[2];
+		  oImg2.src =  arrUrl[2]; 
+		  oImg3.src =  arrUrl[2]; 
+	  }
+	  aLi[4].onmouseover = function(){
+		  aLi[5].innerHTML = arrSpan[4];
+		  oTip.style.display = 'none';
+		  aLi[5].style.color = '#F93';
+		  oImg0.src =  arrUrl[1];
+		  oImg1.src =  arrUrl[1];
+		  oImg2.src =  arrUrl[1]; 
+		  oImg3.src =  arrUrl[1];
+		  oImg4.src =  arrUrl[1]; 
+	  }
+	  aLi[4].onmouseout = function(){
+		  aLi[5].innerHTML = '';
+		  oTip.style.display = 'block';
+		  oImg0.src =  arrUrl[2];
+		  oImg1.src =  arrUrl[2];
+		  oImg2.src =  arrUrl[2]; 
+		  oImg3.src =  arrUrl[2];
+		  oImg4.src =  arrUrl[2]; 
+	  }
+	 
+};
+    </script>
+ 
+</head>
+<body>
+  <div id="wrap">
+  <h2><span>*</span>总体评价</h2>
+  <ul>
+  <li><img src='img/shouwuxing2.png'/></li>
+  <li><img src="img/shouwuxing2.png"/></li>
+  <li><img src="img/shouwuxing2.png"/></li>
+  <li><img src="img/shouwuxing2.png"/></li>
+  <li><img src="img/shouwuxing2.png"/></li>
+  <li class="last"></li>
+  </ul>
+  <p id="tip">
+  小提示：点击小星星就能打分
+  <img src="img/tip-bg.png"/>
+  </p>
+  </div>
+</body>
+</html>
