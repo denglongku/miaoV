@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>商品加减与统计结果</title>
+    <style type="text/css">
+
+
+    </style>
+    
+    <script type="text/javascript">
+         
+    window.onload = function() {
+	   var oUl = document.getElementById('list');
+	   var aLi = oUl.getElementsByTagName('li');
+	  
+	   var oCount = document.getElementById('count');
+	   var oTotal = document.getElementById('total');
+	   var oMprice = document.getElementById('mprice');
+	   
+	   var aStrong = oUl.getElementsByTagName('strong');
+	   var aEm = oUl.getElementsByTagName('em');
+	   var aSpan = oUl.getElementsByTagName('span');
+	   
+	   for(var i=0;i<aLi.length;i++){
+			fn1(aLi[i]);
+	   }
+	   
+	   function count(){
+		   var a = 0;
+		   var b = 0;
+		   var temp = 0;
+		  for(var i=0;i<aStrong.length;i++){
+			 a += parseFloat(aStrong[i].innerHTML);
+			 b += parseFloat(aSpan[i].innerHTML);  
+			 if(aStrong[i].innerHTML != 0){
+			    if(parseFloat(aEm[i].innerHTML) > temp){
+					 temp = parseFloat(aEm[i].innerHTML);
+				}	 
+			}
+	   } 
+	      oCount.innerHTML = a;
+		  oTotal.innerHTML = b;
+		  oMprice.innerHTML = temp;
+	  }
+	  
+	  
+	  
+	  
+	  
+	  
+	   function fn1(oLi){
+		  var aBtn = oLi.getElementsByTagName('input');
+		  var oStrong = oLi.getElementsByTagName('strong')[0];
+		  var oEm = oLi.getElementsByTagName('em')[0];
+		  var oSpan = oLi.getElementsByTagName('span')[0];
+		  //var n1 = oStrong.innerHTML; //这是字符串类型
+		  //var n2 = oEm.innerHTML; //字符串
+		  var n1 = Number(oStrong.innerHTML);
+		  var n2 = parseFloat(oEm.innerHTML);//这样就可以直接进行数字计算
+		  
+		   aBtn[1].onclick = function(){
+			   n1 ++;//使用++可以隐性变换数据类型，上面的字符串就解决了
+			  oStrong.innerHTML = n1; 
+			  oSpan.innerHTML = n1*n2 + '元';
+			  count();
+			} 
+			
+			 aBtn[0].onclick = function(){
+			   n1 --;//使用++可以隐性变换数据类型，上面的字符串就解决了
+			   if(n1<0){n1=0;}
+			   
+			  oStrong.innerHTML = n1; 
+			   oSpan.innerHTML = n1*n2 + '元';
+			   count();
+			} 
+			
+			
+		}
+	    
+		  
+		
+};
+    </script>
+ 
+</head>
+<body>
+   <ul id="list">
+   <li >
+      <input type="button" value="-"/>
+      <strong>0</strong>
+      <input type="button" value="+"/>
+      单价:<em>12.5元</em> 
+      小计：<span>0元</span>   
+   </li>
+   <li >
+      <input type="button" value="-"/>
+      <strong>0</strong>
+      <input type="button" value="+"/>
+      单价:<em>5.5元</em> 
+      小计：<span>0元</span>   
+   </li>
+   <li >
+      <input type="button" value="-"/>
+      <strong>0</strong>
+      <input type="button" value="+"/>
+      单价:<em>45.9元</em> 
+      小计：<span>0元</span>   
+   </li>
+   <li >
+      <input type="button" value="-"/>
+      <strong>0</strong>
+      <input type="button" value="+"/>
+      单价:<em>256元</em> 
+      小计：<span>0元</span>   
+   </li>
+   <li >
+      <input type="button" value="-"/>
+      <strong>0</strong>
+      <input type="button" value="+"/>
+      单价:<em>9.5元</em> 
+      小计：<span>0元</span>   
+   </li>
+   <li >
+      <input type="button" value="-"/>
+      <strong>0</strong>
+      <input type="button" value="+"/>
+      单价:<em>4.6元</em> 
+      小计：<span>0元</span>   
+   </li>
+   </ul>
+   <p>商品合计共：<span id="count">0</span>件，共花费了：<span id="total">0</span>元<br/>其中最贵的商品单价是：<span id="mprice">0</span>元</p>
+</body>
+</html>
