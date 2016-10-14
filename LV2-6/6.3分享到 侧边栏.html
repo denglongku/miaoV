@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>6.3-分享到 侧边栏</title>
+<style>
+body,div{margin:0; padding:0;}
+#div1{width:30px; height:70px; background:red; position:absolute; left:300px; top:60px; color:#fff; font-size:16px; text-align:center; }
+#div2{width:300px; height:200px; background:#C9C; position:absolute; left:-300px; top:100px;}
+
+#img{width:200px; height:200px; opacity:0.3; filter:alpha(opacity=30); position:absolute; top:20px; left:380px;}
+
+</style>
+<script src="startMove .js"></script>
+<!--<script src="opacity.js"></script>-->
+
+<script>
+window.onload = function(){
+	var oDiv1 = document.getElementById('div1');
+	var oDiv2 = document.getElementById('div2');
+	var oImg = document.getElementById('img');
+	
+	//利用冒泡，运动加在父级元素上
+	oDiv2.onmouseover = function(){
+		//this.style.left = '0px';
+		startMove(this,'left',10,0);
+	}
+	
+	oDiv2.onmouseout = function(){
+		//this.style.left = '-300px';
+		startMove(this,'left',-10,-300);
+	}
+	
+	//透明度变化
+	oImg.onmouseover = function(){
+		startMove(this,'opacity',10,100);
+	}
+	oImg.onmouseout = function(){
+		startMove(this,'opacity',-10,20);
+	}
+	
+	
+
+}
+</script>
+</head>
+
+<body>
+<div id="div2">
+<div id="div1">分享到</div>
+</div>
+<img src="img/55.jpg" id="img" />
+
+
+</body>
+</html>
