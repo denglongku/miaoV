@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>2-留言批量删除</title>
+<style>
+ul{margin:0; padding:0; width:500px; margin:10px;}
+
+li{list-style:none; hight:30px; background:#CCC; border-bottom:#F39; color:#933; font-size:18px;}
+</style>
+
+<script>
+window.onload = function(){
+	var oText = document.getElementById('txt');
+	var oBtn1 = document.getElementById('btn1');
+	var oBtn2 = document.getElementById('btn2');
+	
+	var oUl = document.getElementsByTagName('ul')[0];
+	var aLi = oUl.getElementsByTagName('li');
+	
+	oBtn1.onclick = function(){
+		var oLi = document.createElement('li');
+		oLi.innerHTML = oText.value;
+		oUl.insertBefore(oLi,oUl.children[0]);
+	var oA = document.createElement('a');
+	oA.innerHTML = '删除';
+	oA.href = 'javascript:;';
+	oA.onclick = function(){
+		oUl.removeChild(this.parentNode);
+		} 
+	oLi.appendChild(oA);
+	//留言数超过5，就删除第1条留言
+	if(aLi.length == 6){
+		oUl.removeChild(oUl.children[aLi.length-1]);
+	}
+	}	
+	//点击清空，删除ul
+	oBtn2.onclick = function(){
+		for(var i=0;i<aLi.length;i++){
+		document.body.removeChild(oUl);
+	}
+	}
+	
+	}
+</script>
+</head>
+
+<body>
+<input type="text" id="txt" value="输入你想说的话" />
+<input type="button" id="btn1" value="留言" />
+<input type="button" id="btn2" value="清空留言板" />
+
+<ul></ul>
+</body>
+</html>
