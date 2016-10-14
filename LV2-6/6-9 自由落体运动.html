@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>6-9 自由落体</title>
+<style>
+body,div{margin:0; padding:0;}
+
+#div1{width:100px; height:50px; background:red; position:absolute; color:#fff; text-align:center; font-weight:bold; line-height:50px; left:200px;}
+
+#btn{background:black; color:#fff; border:none;}
+
+</style>
+
+   
+<script>
+window.onload = function(){
+	var oDiv = document.getElementById('div1');
+	var oBtn = document.getElementById('btn');
+	var timer = null;
+    var speed = 0;	
+
+	
+	oBtn.onclick = function(){
+		startMove();
+	}
+	
+function startMove(){
+	clearInterval(timer);
+	timer = setInterval(function(){
+		speed += 3;
+		var T = oDiv.offsetTop + speed;
+		
+		
+		if(T >= document.documentElement.clientHeight - oDiv.offsetHeight ){
+			
+			T = document.documentElement.clientHeight - oDiv.offsetHeight;
+			speed *= -1;
+			
+			speed *= 0.75;
+		}
+		
+		oDiv.style.top = T +'px';
+		
+		
+	},30);
+	
+}
+	
+}
+</script>
+
+
+
+</head>
+
+<body >
+
+<input id='btn' type="button" value="下地狱吧！" />
+<div id="div1">Ｏ(≧口≦)Ｏ</div>
+
+</body>
+</html>
