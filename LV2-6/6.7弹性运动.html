@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>6.7-弹性运动</title>
+<style>
+body,div{margin:0; padding:0;}
+
+#btn{width:50px; height:50px; background:#0FC;}
+#div1{width:50px; height:50px;line-height:50px; background:red; position:absolute; left:10px; top:60px; color:#fff; font-size:10px; text-align:center; /*opacity:1; filter:alpha(opacity=100);*/  border:1px solid  #F69; border-radius:15px;}
+#bg{ width:10px; height:500px; background: blue;position:absolute; top:20px; left:500px;}
+</style>
+
+<script>
+window.onload = function(){
+	var oDiv1 = document.getElementById('div1');
+	var oBtn = document.getElementById('btn');
+	var iSpeed = 0;
+	var timer = null;
+	
+	oBtn.onclick = function(){
+         startMove();
+	}
+	
+	//弹性运动 函数
+	function startMove(){
+		clearInterval(timer);
+		
+		timer = setInterval(function(){
+			
+			
+			iSpeed += (510 - oDiv1.offsetLeft) / 6;
+			
+			//让速度越来越接近0(乘以小于1的系数)
+			iSpeed *= 0.75;
+			
+			if( Math.abs(iSpeed) <= 1 && Math.abs(510-oDiv1.offsetLeft) <= 1){
+				clearInterval(timer);
+				iSpeed = 0;
+				oDiv1.style.left = '510px';
+				
+			}else{
+			
+			   oDiv1.style.left = oDiv1.offsetLeft + iSpeed +'px';
+		   	}
+		},30);
+		
+  }
+	
+	
+	
+	
+
+}
+</script>
+</head>
+
+<body>
+<input type="button" value="弹起来吧" id='btn'/>
+<div id="div1">Q弹如我</div>
+<div id="bg"></div>
+
+
+
+</body>
+</html>
