@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>6-5图片预先加载</title>
+<style>
+body{margin:0; padding:0;}
+
+img{width:300px; border:1px solid #06F;}
+
+</style>
+
+   
+<script>
+window.onload = function(){
+	var oImg = document.getElementById('img');
+	var oImage = new Image();
+	var arr = ['http://img.hb.aicdn.com/5833fb783808edde8f9503f4fcb6fe47ec3337c6408bda-38MdxB_fw658','http://img.hb.aicdn.com/0174c12cd3a0f42d6232226f813469ee8fac6b8a3b12c7-r9J8fw_fw658','http://img.hb.aicdn.com/4c0f9676c063f16eba0721198d8edff7c4f6e09043870a-lNJ3Qh_fw658','http://img.hb.aicdn.com/c3d9428b3db08fddc03fa778d60f392f16779fd1633ffa-e19hf7_fw658','http://img.hb.aicdn.com/366d117abb6cef795fbcb2115d80a611fe676b6a46fe58-NxG3Fj_fw658'
+	];
+	
+	var i=0;
+	oImg.onclick = function(){
+	   i++;
+	   if(i < arr.length){
+		   oImg.src = arr[i];   
+		}	
+	}
+	
+	var iCur = 0;
+	
+	xunlei();
+	
+	function xunlei(){
+		
+		oImage.src = arr[iCur];
+		
+		oImage.onload = function(){
+		   iCur++;
+		   if(iCur < arr.length){
+			  xunlei();  //递归
+			   
+		   }
+		   document.title = iCur + '/' + arr.length;	
+		}
+	}
+}
+</script>
+</head>
+
+<body>
+<img id='img' src="http://img.hb.aicdn.com/b46c4f6a0662cf25e85b2ec4ab3db7a31af4786c48a293-XUoPXa_fw658"  />
+</body>
+</html>
