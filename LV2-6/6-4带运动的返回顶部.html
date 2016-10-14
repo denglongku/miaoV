@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>6-4带运动的返回顶部</title>
+<style>
+body,div{margin:0; padding:0;}
+body{height:2000px;}
+div{width:50px; height:50px; background:red; position:absolute; top:0; right:0; color:#fff; font-size:28px; margin:10px; line-height:50px; text-align:center;}
+
+
+</style>
+<script src="startMove-hc.js"></script>
+   
+<script>
+window.onload = function(){
+	var oDiv = document.getElementById('div1');
+	var iTimer = null;
+	var b = 0;
+	
+	window.onscroll = function(){
+		setTop();
+		
+		if(b != 1){ //b=1说明 scroll事件是被定时器触发的
+			clearInterval(iTimer);   
+			 //b!=1,scroll事件不是定时器触发的
+		};
+		b = 2;
+	}
+	
+	oDiv.onclick = function(){
+		clearInterval(iTimer);
+		
+		var iCur = iSpeed = 0;
+		
+		iTimer = setInterval(function(){
+			
+			iCur = document.documentElement.scrollTop || document.body.scrollTop;
+			
+			iSpeed = Math.ceil((0 - iCur)/8);
+			
+			if(iCur == 0){
+				clearInterval(iTimer);
+			}else{
+				document.documentElement.scrollTop = document.body.scrollTop = iCur + iSpeed ;
+			}
+			
+			b = 1;
+		},30);
+	}
+	
+	
+//封装函数，设置div的Top值
+function setTop(){
+	//滚动条滚动的高度
+	var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+	//div的高等于滚动高+可视区高度—div自身的高
+	oDiv.style.top = scrollTop + document.documentElement.clientHeight - oDiv.offsetHeight + 'px';
+	
+}
+}
+</script>
+</head>
+
+<body>
+    <div id="div1">Top</div>
+   
+</body>
+</html>
