@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>6-11 扔出去弹性碰撞 官网公告菜单</title>
+<style>
+body,div{margin:0; padding:0;}
+
+#div1{width:100px; height:100px; background:red; color:#fff; line-height:100px; text-align:center;  position:absolute; cursor:pointer;}
+
+.box{border:1px solid blue; position:absolute;}
+
+</style>
+
+   
+<script>
+window.onload = function(){
+	var oDiv = document.getElementById('div1');
+	
+	//拖拽
+	var disX =0;
+	var disY =0;
+	
+	var prevX = 0;
+	var prevY = 0;
+	var speedX = 0;
+	var speedY = 0;
+	
+	var timer = null;
+	
+	
+	oDiv.onmousedown = function(ev){
+		var ev = ev || window.event;
+		disX = ev.clientX - oDiv.offsetLeft;
+		disY = ev.clientY - oDiv.offsetTop;
+		
+		//最后一个点
+		prevX = ev.clientX ;
+	    prevY = ev.clientY;
+		
+		
+		document.onmousemove = function(ev){
+			var ev = ev || window.event;
+			oDiv.style.left = ev.clientX - disX + 'px';
+			oDiv.style.top = ev.clientY - disY + 'px';
+			
+			//第一个点和第二个点的差值
+			speedX = ev.clientX  - prevX;
+	        speedY = ev.clientY  - prevY;
+			
+			//将上一个点赋值给它们
+			prevX = ev.clientX ;
+			prevY = ev.clientY;
+			
+			/*//连续触发div
+			var oBox = document.createElement('div');
+			oBox.className = 'box';
+			document.body.appendChild(oBox);
+			oBox.style.left = ev.clientX + 'px';
+			oBox.style.top = ev.clientY + 'px';*/
+		}
+		
+		document.onmouseup = function(ev){
+			document.onmousemove = null;
+			document.onmouseup = null;
+			
+			startMove();
+			
+		}
+		return false;
+	}
+	
+	function startMove(){
+	   clearInterval(timer);
+	   timer = setInterval(function(){
+		   
+		   speedY += 3;
+		   
+		   var L = oDiv.offsetLeft + speedX;
+		   var T= oDiv.offsetTop + speedY;
+		   
+		   if(T> document.documentElement.clientHeight - oDiv.offsetHeight ){   T = document.documentElement.clientHeight - oDiv.offsetHeight ;
+		   speedY *= -1;
+			speedY *= 0.75; 
+			speedX *= 0.75;  
+			}else if(T<0){
+				T = 0;
+				speedY *= -1;
+				speedY *= 0.75;
+			}
+			
+			if(L> document.documentElement.clientWidth - oDiv.offsetWidth ){   L = document.documentElement.clientWidth - oDiv.offsetWidth ;
+		   speedX *= -1;
+		   speedX *= 0.75;
+			   
+			}else if(L<0){
+				L = 0;
+				speedX *= -1;
+				speedX *= 0.75;
+			}
+		   
+		   oDiv.style.left = L + 'px';
+		   oDiv.style.top = T + 'px';
+		},30);	
+	}
+}
+</script>
+
+
+
+</head>
+
+<body >
+
+<div id="div1">快来扔我呀~</div>
+
+</body>
+</html>
