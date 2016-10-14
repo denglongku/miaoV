@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>6-2 带运动效果的留言本</title>
+<style>
+body,ul{margin:0; padding:0;}
+
+textarea{ border:3px solid #C69; margin-top:10px;}
+
+input{border:1px solid #C69; background:#09F; color:#fff;}
+
+ul{position:absolute; top:10px; right:10px; border:3px solid #09F; width:700px; height:500px; padding:0 10px; overflow:hidden;}
+
+li{ line-height:28px; list-style:none; border-bottom:1px dotted #0CF; word-break:break-all; overflow:hidden; }
+
+</style>
+<script src="startMove-hc.js"></script>
+
+<script>
+window.onload = function(){
+	var oTxt = document.getElementById('content');
+	var oBtn = document.getElementById('btn');
+	var oUl1 = document.getElementById('ul1');
+	
+	oBtn.onclick = function(){
+		var oLi = document.createElement('li');
+		oLi.innerHTML = oTxt.value;
+		
+		if(oUl1.children[0]){
+		    oUl1.insertBefore(oLi,oUl1.children[0]);	
+		}else{
+			oUl1.appendChild(oLi);
+		}
+		
+		//保存运动之前的原始高度
+		var iHeight = parseInt(css(oLi,'height'));
+		alert(iHeight);
+		//运动之前初始化
+		oLi.style.height = '0px';
+		oLi.style.opacity = '0';
+		oLi.style.filter = 'alpha(opacity=0)';
+		
+		startMove(oLi,{
+			height:iHeight,
+			opacity:100,
+		});
+		
+	}
+}
+</script>
+</head>
+
+<body>
+    <textarea id="content" rows="10" cols="50"></textarea>
+    <input type="button" value="留言" id="btn" />
+    <ul id="ul1"></ul>
+</body>
+</html>
